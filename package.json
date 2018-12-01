@@ -1,0 +1,38 @@
+{
+  "name": "tjb-gfx",
+  "version": "0.0.1",
+  "description": "awesome gfx animation library",
+  "main": "tjb-gfx.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "start": "babel --watch tjb-gfx.js --out-dir docs | http-server",
+    "build": "npm run build-max | npm run build-min",
+    "build-max": "babel tjb-gfx.js --out-file docs/tjb-gfx.js",
+    "build-min": "babel --minified tjb-gfx.js --out-file docs/tjb-gfx.min.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tjb-webcomponents/gfx.git"
+  },
+  "keywords": [
+    "webcomponent",
+    "custom",
+    "element",
+    "htmlelement",
+    "html",
+    "input",
+    "label"
+  ],
+  "author": "Thibault Jan Beyer",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tjb-webcomponents/gfx/issues"
+  },
+  "homepage": "https://github.com/tjb-webcomponents/gfx#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "http-server": "^0.11.1"
+  }
+}

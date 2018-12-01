@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>tjb-gfx</title>
+  <style>
+    body {
+      text-align: center;
+    }
+
+    .example {
+      margin: auto;
+      width: 250px;
+      height: 250px;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>tjb-gfx</h1>
+
+  <h2 id="bounce">Bounce Example:</h2>
+
+  <div class="example example-bounce">
+
+    <button class="example-bounce-btn">Trigger</button>
+    <script type="module">
+      import {bounce} from './tjb-gfx.js';
+
+      const bounceBTN = document.querySelector('.example-bounce-btn');
+      bounceBTN.addEventListener('click', e => {
+        bounce(
+          bounceBTN,
+          e => console.log("bounced", e),
+          true
+        );
+      });
+    </script>
+
+  </div>
+
+</body>
+
+</html>
