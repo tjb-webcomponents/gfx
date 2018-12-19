@@ -54,8 +54,7 @@ bounce(element, callback, cleanup);
 
 Blink a node on and off. Useful to draw attention:
 
-<iframe src="https://tjb-webcomponents.github.io/tjb-gfx/#blink">  
-https://tjb-webcomponents.github.io/tjb-gfx/#blink
+[![blink Example](/gifs/blink.gif)](https://tjb-webcomponents.github.io/tjb-gfx/#blink)
 
 #### Add to project
 
@@ -98,8 +97,7 @@ blink(element, callback, cleanup);
 
 Shake a node on and off. Useful to draw attention:
 
-<iframe src="https://tjb-webcomponents.github.io/tjb-gfx/#shake">  
-https://tjb-webcomponents.github.io/tjb-gfx/#shake
+[![shake Example](/gifs/shake.gif)](https://tjb-webcomponents.github.io/tjb-gfx/#shake)
 
 #### Add to project
 
