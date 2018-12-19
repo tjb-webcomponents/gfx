@@ -98,7 +98,7 @@ blink(element, callback, cleanup);
 
 Shake a node on and off. Useful to draw attention:
 
-<iframe src="https://tjb-webcomponents.github.io/tjb-gfx/#shake">  
+<iframe src="https://tjb-webcomponents.github.io/tjb-gfx/#shake" />  
 https://tjb-webcomponents.github.io/tjb-gfx/#shake
 
 #### Add to project
