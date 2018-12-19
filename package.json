@@ -1,6 +1,6 @@
 {
   "name": "tjb-gfx",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "awesome gfx animation library",
   "main": "tjb-gfx.js",
   "directories": {
