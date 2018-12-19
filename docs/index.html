@@ -38,10 +38,50 @@
 
       const bounceBTN = document.querySelector('.example-bounce-btn');
       bounceBTN.addEventListener('click', e => {
+        console.log("bounce:start");
         bounce(
           bounceBTN,
-          e => console.log("bounced", e),
-          true
+          e => console.log("bounce:end", e)
+        );
+      });
+    </script>
+
+  </div>
+
+  <h2 id="blink">Blink Example:</h2>
+
+  <div class="example example-blink">
+
+    <button class="example-blink-btn">Trigger</button>
+    <script type="module">
+      import {blink} from './tjb-gfx.js';
+
+      const blinkBTN = document.querySelector('.example-blink-btn');
+      blinkBTN.addEventListener('click', e => {
+        console.log("blink:start");
+        blink(
+          blinkBTN,
+          e => console.log("blink:end", e)
+        );
+      });
+    </script>
+
+  </div>
+
+  <h2 id="shake">Shake Example:</h2>
+
+  <div class="example example-shake">
+
+    <button class="example-shake-btn">Trigger</button>
+    <script type="module">
+      import {shake} from './tjb-gfx.js';
+
+      const shakeBTN = document.querySelector('.example-shake-btn');
+      shakeBTN.addEventListener('click', e => {
+        console.log("shake:start");
+        shake(
+          shakeBTN,
+          e => console.log("shake:end", e)
         );
       });
     </script>

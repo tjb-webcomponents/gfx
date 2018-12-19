@@ -7,7 +7,7 @@ import html from "https://tjb-webcomponents.github.io/html-template-string/html-
  * @param {function} callback
  * @param {boolean} cleanup whether or not to remove elements after animation
  */
-export function bounce(element, callback, cleanup) {
+export function bounce(element, callback, cleanup = true) {
   const bounceStyles = html `
     <style>
       .tjb-bounce {
@@ -36,10 +36,74 @@ export function bounce(element, callback, cleanup) {
   bounce.appendChild(bounceStyles);
   element.style.position = "relative";
   element.appendChild(bounce);
-  bounce.classList.add("tjb-bounce")
+  bounce.classList.add("tjb-bounce");
   bounce.addEventListener("animationend", e => {
     callback(e);
-    if (cleanup)
-      setTimeout(() => element.removeChild(bounce), 1000);
+    if (cleanup) setTimeout(() => element.removeChild(bounce), 1000);
+  });
+}
+
+/**
+ * Exports a CSS animation that blinks a node
+ * @param {node} element
+ * @param {function} callback
+ * @param {boolean} [cleanup] whether or not to remove elements after animation
+ */
+export function blink(element, callback, cleanup = true) {
+  const name = 'blink';
+  const styles = html `
+    <style>
+      .tjb-${name} {
+        animation: tjb-${name} 600ms linear 3 forwards;
+      }
+
+      @keyframes tjb-${name} {
+        50% {
+          opacity: 0;
+        }
+      }
+    </style>
+  `;
+
+  element.appendChild(styles);
+  element.classList.add(`tjb-${name}`);
+  element.addEventListener("animationend", e => {
+    callback(e);
+    if (cleanup) setTimeout(() => element.removeChild(styles), 1000);
+  });
+}
+
+
+/**
+ * Exports a CSS animation that shakes a node
+ * @param {node} element
+ * @param {function} callback
+ * @param {boolean} [cleanup] whether or not to remove elements after animation
+ */
+export function shake(element, callback, cleanup = true) {
+  const name = 'shake';
+  const styles = html `
+    <style>
+      .tjb-${name} {
+        animation: tjb-${name} 300ms linear 3 forwards;
+      }
+
+      @keyframes tjb-${name} {
+        25% {
+          transform: translateX(-6%);
+        }
+
+        50% {
+          transform: translateX(6%);
+        }
+      }
+    </style>
+  `;
+
+  element.appendChild(styles);
+  element.classList.add(`tjb-${name}`);
+  element.addEventListener("animationend", e => {
+    callback(e);
+    if (cleanup) setTimeout(() => element.removeChild(styles), 1000);
   });
 }

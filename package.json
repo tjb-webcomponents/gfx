@@ -7,10 +7,14 @@
     "doc": "docs"
   },
   "scripts": {
-    "start": "babel --watch tjb-gfx.js --out-dir docs | http-server",
+    "start": "npm run watch-min | npm run watch-max | http-server",
     "build": "npm run build-max | npm run build-min",
     "build-max": "babel tjb-gfx.js --out-file docs/tjb-gfx.js",
-    "build-min": "babel --minified tjb-gfx.js --out-file docs/tjb-gfx.min.js"
+    "build-min": "babel --minified tjb-gfx.js --out-file docs/tjb-gfx.min.js",
+    "watch-max": "babel --watch tjb-gfx.js --out-file docs/tjb-gfx.js",
+    "watch-min": "babel --watch --minified tjb-gfx.js --out-file docs/tjb-gfx.min.js",
+    "patch": "npm run build; git add .; git commit -m '$M'; git push; npm version patch; npm publish",
+    "minor": "npm run build; git add .; git commit -m '$M'; git push; npm version minor; npm publish"
   },
   "repository": {
     "type": "git",
