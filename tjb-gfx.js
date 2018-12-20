@@ -2,12 +2,11 @@ import html from "https://tjb-webcomponents.github.io/html-template-string/html-
 
 /**
  * Creates a circle that fills the entire div
- * Calls a callback after the animation
+ * Resolves promise after the animation
  * @param {node} element
- * @param {function} callback
  * @param {boolean} cleanup whether or not to remove elements after animation
  */
-export function bounce(element, callback, cleanup = true) {
+export const bounce = (element, cleanup = true) => new Promise((resolve, reject) => {
   const bounceStyles = html `
     <style>
       .tjb-bounce {
@@ -38,18 +37,17 @@ export function bounce(element, callback, cleanup = true) {
   element.appendChild(bounce);
   bounce.classList.add("tjb-bounce");
   bounce.addEventListener("animationend", e => {
-    callback(e);
+    resolve(e);
     if (cleanup) setTimeout(() => element.removeChild(bounce), 1000);
   });
-}
+});
 
 /**
  * Exports a CSS animation that blinks a node
  * @param {node} element
- * @param {function} callback
  * @param {boolean} [cleanup] whether or not to remove elements after animation
  */
-export function blink(element, callback, cleanup = true) {
+export const blink = (element, cleanup = true) => new Promise((resolve, reject) => {
   const name = 'blink';
   const styles = html `
     <style>
@@ -68,19 +66,20 @@ export function blink(element, callback, cleanup = true) {
   element.appendChild(styles);
   element.classList.add(`tjb-${name}`);
   element.addEventListener("animationend", e => {
-    callback(e);
+    resolve(e);
     if (cleanup) setTimeout(() => element.removeChild(styles), 1000);
   });
-}
+});
 
 
 /**
  * Exports a CSS animation that shakes a node
  * @param {node} element
- * @param {function} callback
  * @param {boolean} [cleanup] whether or not to remove elements after animation
+ * @return {promise}
  */
-export function shake(element, callback, cleanup = true) {
+export const shake = (element, cleanup = true) => new Promise((resolve, reject) => {
+
   const name = 'shake';
   const styles = html `
     <style>
@@ -103,7 +102,7 @@ export function shake(element, callback, cleanup = true) {
   element.appendChild(styles);
   element.classList.add(`tjb-${name}`);
   element.addEventListener("animationend", e => {
-    callback(e);
     if (cleanup) setTimeout(() => element.removeChild(styles), 1000);
+    resolve(e);
   });
-}
+});

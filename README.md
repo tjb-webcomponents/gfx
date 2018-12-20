@@ -42,12 +42,13 @@ import { bounce } from 'tjb-gfx';
 ```JavaScript
 /**
  * Creates a circle that fills the entire div
- * Calls a callback after the animation
+ * Resolves a promise after the animation
  * @param {node} element
- * @param {function} callback
  * @param {boolean} cleanup whether or not to remove elements after animation
+ * @return {promise}
  */
-bounce(element, callback, cleanup);
+bounce(element, cleanup)
+  .then(callback);
 ```
 
 ### blink
@@ -85,12 +86,13 @@ import { blink } from 'tjb-gfx';
 ```JavaScript
 /**
  * Creates a circle that fills the entire div
- * Calls a callback after the animation
+ * Resolves a promise after the animation
  * @param {node} element
- * @param {function} callback
  * @param {boolean} cleanup whether or not to remove elements after animation
+ * @return {promise}
  */
-blink(element, callback, cleanup);
+blink(element, cleanup)
+  .then(callback);
 ```
 
 ### shake
@@ -126,11 +128,15 @@ import { shake } from 'tjb-gfx';
 #### Useage
 
 ```JavaScript
-html`
-<style>
-  ${shake}
-</style>
-`
+/**
+ * Shakes a node
+ * Resolves a promise after the animation
+ * @param {node} element
+ * @param {boolean} cleanup whether or not to remove elements after animation
+ * @return {promise}
+ */
+shake(element, cleanup)
+  .then(callback);
 ```
 
 # Enjoy
